@@ -1,13 +1,11 @@
  <template>
   <footer class="footer">
-
         <div class="column">
           <h3 class="footertitle">Inspiration<span>Daily</span></h3>
           <a :href="this.sites[0]">Home</a>
           <a :href="this.sites[2]">Categories</a>
           <a :href="this.sites[3]">Random</a>
         </div>
-
   </footer>
 </template>
 
@@ -26,11 +24,9 @@ export default {
     getRoutesList (routes, pre) {
       return routes.reduce((array, route) => {
         const path = `${pre}${route.path}`
-
         if (route.path !== '*') {
           array.push(path)
         }
-
         if (route.children) {
           array.push(...this.getRoutesList(route.children, `${path}/`))
         }

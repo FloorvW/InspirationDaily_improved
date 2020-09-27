@@ -31,37 +31,7 @@ export default {
   name: 'App',
   components: {
     Footer
-  },
-  data () {
-    return {
-      photos: []
-    }
   }
-  // methods: {
-  //   //get routes in order to generate sitemap
-  //   getRoutesList(routes, pre) {
-  //     return routes.reduce((array, route) => {
-  //       const path = `${pre}${route.path}`;
-
-  //       if (route.path !== "*") {
-  //         array.push(path);
-  //       }
-
-  //       if (route.children) {
-  //         array.push(...this.getRoutesList(route.children, `${path}/`));
-  //       }
-
-  //       return array;
-  //     }, []);
-  //   },
-  //   redirectTo() {},
-  // },
-  // mounted() {
-  //   this.sites = this.getRoutesList(
-  //     router.options.routes,
-  //     "http://localhost:8080/InspirationDaily/#"
-  //   );
-  // },
 }
 </script>
 

@@ -56,6 +56,7 @@ export default new Vuex.Store({
     }
   },
   actions: {
+    // retrieves the latest photo-information from all topics from unsplash
     listPhotos (context) {
       axios
         .get(
@@ -67,19 +68,11 @@ export default new Vuex.Store({
           }
         )
         .then((response) => {
-          // this.photos = response.data.results;
-          // console.log("Response")
-          // console.log("listPhotos: " + response.data)
           context.commit('SET_PHOTOS', response.data)
-          // this.photos = response.data.results
-
-          // console.log(this.photos)
         })
-      // .catch(() => {
-      //   this.photos = [];
-      // });
     },
     searchPhotos (context) {
+      // retrieves photo-information from the chosen topic and the chosen color
       var topic = context.getters.getTopic
       var color = context.getters.getColor
       var str = 'https://api.unsplash.com/search/photos?order_by=latest&per_page=12'
@@ -99,20 +92,11 @@ export default new Vuex.Store({
           }
         )
         .then((response) => {
-          // this.photos = response.data.results;
-          // console.log("Response")
-          // console.log(response)
-          // console.log("searchPhotos: " + response.data.results)
           context.commit('SET_PHOTOS', response.data.results)
-          // this.photos = response.data.results
-
-          // console.log(this.photos)
         })
-      // .catch(() => {
-      //   this.photos = [];
-      // });
     },
     searchByUser (context) {
+      // retrieves photo-information from the user of the chosen picture
       axios
         .get(
           `https://api.unsplash.com/users/${context.getters.getUser}/photos?per_page=3`,
@@ -123,9 +107,7 @@ export default new Vuex.Store({
           }
         )
         .then((response) => {
-          // console.log("searchByUser: " + response.data)
           context.commit('SET_USERPHOTOS', response.data)
-          // console.log("searchbyuser: " + response.data)
         })
         .catch(() => {
           this.images = []

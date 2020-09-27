@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="allbtns">
-      <div id="category" class="categoriebtns">
+      <div id="category" class="categorybtns">
         <button class="btn1" id="fashion">Fashion</button>
         <button class="btn1" id="architecture">Architecture</button>
         <button class="btn1" id="food">Food</button>
@@ -36,11 +36,13 @@ import Gallery from './Gallery.vue'
 import store from '../main.js'
 
 export default {
-  name: 'categories',
+  name: 'categorys',
   components: {
     Gallery
   },
   mounted () {
+    // detect clickevent and pass topic, color and sorting options to main.js search functions
+    // add active class to clikced button
     var header = document.getElementById('category')
     var btns = header.getElementsByClassName('btn1')
     for (var i = 0; i < btns.length; i++) {
@@ -108,14 +110,13 @@ export default {
     }
   },
   created () {
-    // console.log("gallery: listPhotos");
     store.dispatch('listPhotos')
   }
 }
 </script>
 
 <style scoped>
-.categoriebtns {
+.categorybtns {
   display: flex;
   justify-content: center;
   margin-bottom: 25px;
@@ -134,7 +135,6 @@ export default {
   height: 1vh;
   box-shadow: 0.5px 0.5px 0.5px 0.5px;
   border-color: rgba(175, 187, 194, 0.486);
-  /* background-color: rgba(175, 187, 194, 0.486); */
   height: 100%;
   padding-top: 0.5%;
   padding-bottom: 0.5%;
@@ -152,41 +152,21 @@ export default {
 }
 
 .allbtns {
-  /* background-color:  rgba(66, 65, 65, 0.1);
-  padding-bottom: 3%;
-  margin-left:25%;
-  margin-right: 25%;
-  margin-top: 8%;
-  margin-bottom: 5%;
-  border-radius: 0.75rem;
-  border: 1px; */
-  /* background:linear-gradient(rgba(157, 186, 210,0.3), rgb(185, 214, 223,0.2)); */
-  /* margin-bottom: 0.3%; */
   padding-bottom: 2%;
-
-  /* margin-left: 2%;
- margin-right: 2%; */
   margin-top: 3%;
   background-color: rgba(175, 187, 194, 0.3);
-  /* background-color:rgba(175, 187, 194, 0.486); */
 }
-
-/* .btn1:hover {
-  color: rgb(99, 135, 218);
-} */
 
 .btn1,
 .btn3 {
   font-size: 18px;
   color: rgb(10, 42, 82);
-  /* border: 2px solid; */
   box-shadow: 0.5px 0.5px 0.5px 0.5px;
   padding: 10px;
   padding-top: 6px;
   padding-bottom: 6px;
   border-color: rgba(175, 187, 194, 0.486);
   border-radius: 0.75rem;
-  /* background-color: rgba(175, 187, 194, 0.486); */
   outline: none;
   margin-left: 8px;
   background: linear-gradient(
@@ -219,47 +199,15 @@ export default {
 
   border-color: rgba(213, 242, 247, 0.2);
   padding: 1% 5%;
-  /* margin-left: 1%;
-  margin-right: 1%; */
   background-color: none;
 }
-
-/* .btn2.active {
-  color: #20289e;
-} */
-
-/* .btn3 {
-  font-size: 18px;
-  color: rgb(205, 203, 203); */
-/* border: 2px solid; */
-/* box-shadow: 0.5px 0.5px 0.5px 0.5px;
-  border-color: rgba(175, 187, 194, 0.486);
-  border-radius: 0.75rem; */
-/* background-color: rgba(175, 187, 194, 0.486); */
-/* outline: none; */
-/* margin-left: 8px; */
-/* background: linear-gradient(
-    rgba(213, 242, 247, 0.2),
-    rgba(232, 234, 238, 0.2)
-  );
-  padding: 5px 10px;
-  margin-left: 2px;
-  margin-right: 8px;
-  margin-top: 2%;
-  outline: none;
-} */
-
-/* .btn3.active,
-.btn3:hover {
- color: rgb(10, 42, 82);
-} */
 
 .btn:not(:last-child) {
   margin-right: 10px;
 }
 
 @media screen and (max-width: 1000px) {
-  .categoriebtns {
+  .categorybtns {
     padding-top: 10%;
   }
 
@@ -287,13 +235,13 @@ export default {
 }
 
 @media screen and (max-width: 600px) {
-  .categoriebtns {
+  .categorybtns {
     padding-top: 130px;
   }
 }
 
 @media screen and (max-width: 800px) {
-  .categoriebtns {
+  .categorybtns {
     padding-top: 140px;
   }
 }

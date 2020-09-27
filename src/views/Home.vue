@@ -15,7 +15,6 @@ export default {
     Gallery
   },
   created () {
-    // console.log("gallery: listPhotos")
     store.dispatch('listPhotos')
   }
 }

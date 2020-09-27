@@ -19,7 +19,6 @@ export default {
   name: 'Gallery',
   computed: {
     photos () {
-      // console.log("gallery-computed :" + store.getters.getPhotos)
       return store.getters.getPhotos
     }
   }

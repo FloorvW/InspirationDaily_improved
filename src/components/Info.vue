@@ -37,23 +37,11 @@ export default {
   },
   computed: {
     photos () {
-      // console.log("photos: " + store.getters.getPhotos);
       return store.getters.getUserPhotos
     }
   },
-  methods: {
-    // photoUrl(filename) {
-    //   return require(`../assets/images/${filename}`);
-    // },
-    closeLightbox () {
-      this.$router.push('/')
-    }
-    // searchByUser(){
-    // store.commit("SET_USER", this.photo.user);
-    // store.dispatch("searchByUser");
-    // }
-  },
   created () {
+    // find the selected photo, set the user and call searchByUser from main.js
     var photos = store.state.photos
     for (var photo of photos) {
       if (photo.id === this.$route.params.id) {
@@ -62,7 +50,6 @@ export default {
         store.dispatch('searchByUser')
       }
     }
-    //   return null;
   }
 }
 </script>
