@@ -38,7 +38,7 @@ export default {
   mounted () {
     this.sites = this.getRoutesList(
       router.options.routes,
-      'http://localhost:8080'
+      'http://floorvanwieringen.com/InspirationDaily/#'
     )
   }
 }

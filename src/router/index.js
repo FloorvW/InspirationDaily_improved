@@ -25,14 +25,12 @@ const routes = [
   },
   {
     path: '/random',
-    name: '/random',
+    name: 'random',
     component: Random
   }
 ]
 
 const router = new VueRouter({
-  mode: 'history',
-  base: process.env.BASE_URL,
   routes
 })
 
